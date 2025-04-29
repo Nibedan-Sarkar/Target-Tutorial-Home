@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Fee Payment</title>
+    <link rel="stylesheet" href="paymentstyle.css">
+</head>
+<body class="payment-page">
+    <div class="payment-wrapper">
+        <h1>Pay Your Fees Easily</h1>
+
+        <form class="payment-form" id="paymentForm">
+            <input type="text" placeholder="Enter your Full Name" required>
+            <input type="text" placeholder="Enter Roll Number" required>
+            <input type="email" placeholder="Enter your Email" required>
+            <input type="number" placeholder="Enter Amount (₹)" required>
+            <button type="submit">Proceed to Pay</button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            ✅ Payment Successful! Thank you.
+        </div>
+
+        <a href="student-zone.html" class="back-button">← Back to Student Zone</a>
+    </div>
+
+    <script>
+        const form = document.getElementById('paymentForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            form.style.display = 'none'; 
+            successMessage.style.display = 'block'; 
+        });
+    </script>
+</body>
+</html>
