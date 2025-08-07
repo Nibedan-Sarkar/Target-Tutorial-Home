@@ -1,118 +1,138 @@
-<!DOCTYPE html><html lang="bn">
-<head>
+<!DOCTYPE html><html lang="bn"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Target Zone কোচিং সেন্টার</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Target Zone | কোচিং সেন্টার</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    html, body {
-      height: 100%;
-      overflow-x: hidden;
+      font-family: 'Noto Sans Bengali', sans-serif;
     }
     body {
-      background: linear-gradient(270deg, #142850, #27496d, #0c7b93, #00a8cc);
-      background-size: 800% 800%;
-      animation: gradientBG 20s ease infinite;
-      color: white;
-    }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-    header {
+      margin: 0;
+      background: linear-gradient(45deg, #fdfcfb, #e2d1c3);
+      color: #111;
+      overflow-x: hidden;
       position: relative;
-      height: 100vh;
-      overflow: hidden;
     }
-    header video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-      object-fit: cover;
-      opacity: 0.5;
-    }
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      background-color: rgba(0,0,0,0.5);
-      padding: 2rem;
-      border-radius: 1rem;
-    }
-    nav {
+    #particles-js {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 250px;
+      width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 2rem 1rem;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-      z-index: 999;
-    }
-    nav.active {
-      transform: translateX(0);
-    }
-    nav a {
-      display: block;
-      padding: 1rem;
-      color: white;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-      border-bottom: 1px solid #444;
-    }
-    .menu-btn, .close-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 2rem;
-      color: white;
-      z-index: 1000;
-      cursor: pointer;
-    }
-    .close-btn {
-      left: 220px;
-    }
-    main {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
       z-index: -2;
     }
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+    }
+    header {
+      background: rgba(75, 0, 130, 0.8);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    section {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      margin: 1rem;
+      border-radius: 10px;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 1.2rem;
+    }
+    .card h3 {
+      color: #4b0082;
+      margin-bottom: 0.5rem;
+    }
   </style>
-</head>
-<body>
-  <canvas id="particles"></canvas>  <div class="menu-btn"><i class="fas fa-bars"></i></div>
-  <nav id="sidebar">
-    <div class="close-btn"><i class="fas fa-times"></i></div>
-    <a href="#home">হোম</a>
-    <a href="#about">আমাদের সম্পর্কে</a>
-    <a href="#courses">কোর্স</a>
-    <a href="https://nibedansarkar12.github.io/Target/" target="_blank">অনলাইন পরীক্ষা</a>
-    <a href="#success">সফলতা</a>
+</head><body>
+  <video class="video-bg" autoplay muted loop>
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+  </video>
+  <div id="particles-js"></div>  <header>
+    Target Zone কোচিং সেন্টার <br>
+    নতুন ব্যাচ শুরু ১০ই আগস্ট | পরবর্তী মক টেস্ট ১১ই আগস্ট | ভর্তি চলছে!
+  </header>  <nav>
+    <a href="#courses">কোর্সসমূহ</a>
+    <a href="#departments">ডিপার্টমেন্ট</a>
+    <a href="#testimonials">মতামত</a>
     <a href="#faq">প্রশ্নোত্তর</a>
     <a href="#contact">যোগাযোগ</a>
-  </nav>  <header id="home">
-    <video autoplay muted loop>
-      <source src="https://www.videvo.net/videvo_files/converted/2017_10/preview/170831_06_
+    <a href="https://nibedansarkar12.github.io/Target/" target="_blank">পরীক্ষা দিন</a>
+  </nav>  <section id="departments">
+    <h2>ফোর্স ডিপার্টমেন্ট সমূহ</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Central Armed Police Forces (CAPF)</h3>
+        <p>BSF, CRPF, CISF, ITBP, SSB, NSG, Assam Rifles</p>
+      </div>
+      <div class="card">
+        <h3>State Police</h3>
+        <p>WBP, KP, Bihar Police, Rajasthan Police, অন্যান্য রাজ্য পুলিশের বাহিনী</p>
+      </div>
+      <div class="card">
+        <h3>Indian Defence</h3>
+        <p>Indian Army, Navy, Air Force, Coast Guard</p>
+      </div>
+      <div class="card">
+        <h3>Special Forces & Agencies</h3>
+        <p>RAW, IB, SPG, NIA, NDRF, DRDO Security, BCAS</p>
+      </div>
+      <div class="card">
+        <h3>Other Security Jobs</h3>
+        <p>RPF, Forest Guard, Excise, Home Guards, Civil Defence, Fire Services, SSC GD</p>
+      </div>
+    </div>
+  </section>  <section id="testimonials">
+    <h2>সফল ছাত্রদের মতামত</h2>
+    <p>“আমি Target Zone এর সহায়তায় SSC GD তে সাফল্য পেয়েছি। ধন্যবাদ!” – রাহুল</p>
+    <p>“এখানকার শিক্ষকরা অভিজ্ঞ এবং সহায়ক। নিয়মিত মক টেস্ট অনেক সাহায্য করেছে।” – তনুশ্রী</p>
+  </section>  <section id="faq">
+    <h2>সচরাচর জিজ্ঞাসা</h2>
+    <h4>ভর্তি কীভাবে করব?</h4>
+    <p>নিচের ফোন নম্বরে যোগাযোগ করে অথবা কোচিং সেন্টারে সরাসরি এসে ভর্তি হতে পারেন।</p>
+    <h4>ক্লাস কখন শুরু হয়?</h4>
+    <p>নতুন ব্যাচ প্রতি মাসে ১ম সপ্তাহে শুরু হয়।</p>
+    <h4>মক টেস্ট কবে হয়?</h4>
+    <p>প্রতি মাসে শেষ রবিবার মক টেস্ট নেওয়া হয়।</p>
+  </section>  <section id="contact">
+    <h2>যোগাযোগ</h2>
+    <p><strong>ঠিকানা:</strong> Vill- Hardighi, P.O- Bhikahar, P.S- Tapan, Dist- Dakshin Dinajpur, Pin- 733142</p>
+    <p><strong>মোবাইল:</strong> 9614373839 / 7679262362</p>
+    <p><strong>অনলাইন এক্সাম:</strong> <a href="https://nibedansarkar12.github.io/Target/" target="_blank">এখানে ক্লিক করুন</a></p>
+    <p><strong>Google Map:</strong> <a href="https://maps.app.goo.gl/hGa4YK3o3X5DZWXbA" target="_blank">লোকেশন দেখুন</a></p>
+  </section>  <footer style="text-align:center; padding: 1rem; background: #333; color:white;">
+    © 2025 Target Zone. Developed by Nibedan Sarkar.
+  </footer>  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>  <script>
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  </script></body></html>
