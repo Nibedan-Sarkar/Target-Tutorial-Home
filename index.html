@@ -3,180 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Govt Coaching Platform</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Target Zone - কোচিং সেন্টার</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-    body, html { height: 100%; overflow-x: hidden; }
-
-    header {
-      background: linear-gradient(to right, #111, #333);
-      color: #fff;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo { font-size: 20px; font-weight: bold; }
-    .menu-icon { font-size: 24px; cursor: pointer; }
-
-    nav {
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 260px;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
       background: #111;
-      color: #fff;
-      padding-top: 60px;
-      transform: translateX(-100%);
-      transition: 0.3s ease;
-    }
-
-    nav.open { transform: translateX(0); }
-    nav ul { list-style: none; }
-    nav ul li {
-      padding: 15px 25px;
-      border-bottom: 1px solid #222;
-      cursor: pointer;
-    }
-
-    nav ul li:hover { background: #222; }
-
-    .main-content {
-      padding: 80px 20px;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .background-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
     }
 
     .slideshow {
       position: fixed;
-      z-index: -2;
       top: 0;
       left: 0;
+      z-index: -1;
       width: 100%;
       height: 100%;
-      background-size: cover;
-      background-position: center;
-      animation: slideShow 20s infinite;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      animation: slideShow 30s infinite;
+    }
+
+    .slideshow img:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .slideshow img:nth-child(2) {
+      animation-delay: 10s;
+    }
+    .slideshow img:nth-child(3) {
+      animation-delay: 20s;
     }
 
     @keyframes slideShow {
-      0% { background-image: url('image1.jpg'); }
-      25% { background-image: url('image2.jpg'); }
-      50% { background-image: url('image3.jpg'); }
-      75% { background-image: url('image4.jpg'); }
-      100% { background-image: url('image1.jpg'); }
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      30% { opacity: 1; }
+      40% { opacity: 0; }
+      100% { opacity: 0; }
     }
 
-    footer {
-      text-align: center;
+    .sidebar a:hover {
+      background-color: #374151;
       color: white;
-      padding: 20px;
-      background: #111;
-    }
-
-    @media (max-width: 600px) {
-      .main-content { padding: 60px 10px; }
     }
   </style>
 </head>
-<body>
+<body class="flex text-white">
 
-  <video autoplay muted loop class="background-video">
-    <source src="force-background.mp4" type="video/mp4">
-  </video>
-  <div class="slideshow"></div>
-
-  <header>
-    <div class="logo">Govt Force Coaching</div>
-    <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
-  </header>
-
-  <nav id="sideMenu">
-    <ul>
-      <li><i class="fas fa-adjust"></i> Night Mode</li>
-      <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
-      <li><i class="fas fa-book"></i> Look For Courses</li>
-      <li><i class="fas fa-question-circle"></i> Doubt History</li>
-      <li><i class="fas fa-history"></i> Membership History</li>
-      <li><i class="fas fa-download"></i> My Downloads</li>
-      <li><i class="fas fa-file-alt"></i> My Content</li>
-      <li><i class="fas fa-pencil-alt"></i> My Post</li>
-      <li><i class="fas fa-check-circle"></i> Test Result</li>
-      <li><i class="fas fa-wallet"></i> My Wallet</li>
-      <li><i class="fas fa-comments"></i> Messages</li>
-      <li><i class="fas fa-user-friends"></i> Refer a friend</li>
-      <li><i class="fas fa-bell"></i> Notification</li>
-      <li><i class="fas fa-phone"></i> Helpline</li>
-      <li><i class="fab fa-facebook"></i> Facebook</li>
-      <li><i class="fab fa-youtube"></i> YouTube</li>
-      <li><i class="fab fa-telegram"></i> Telegram</li>
-    </ul>
-  </nav>
-
-  <div class="main-content">
-    <h1>স্বাগতম সরকারি ফোর্স কোচিং সেন্টারে</h1>
-    <p>আমাদের কোচিং সেন্টারে আপনি প্রস্তুতি নিতে পারবেন:</p>
-    <ul>
-      <li>West Bengal Police (WBP)</li>
-      <li>Constable, SI, Fireman, Jail Police</li>
-      <li>Army, Navy, BSF, CRPF, CISF, SSC GD</li>
-      <li>Railway Protection Force (RPF)</li>
-      <li>SSC CGL, CHSL, MTS</li>
-    </ul>
-
-    <h2>কোচিং প্রধানের বার্তা</h2>
-    <p>“আমাদের লক্ষ্য ছাত্রদের নিশ্চিত সফলতার পথে এগিয়ে নিয়ে যাওয়া। সঠিক দিশা, পরিকল্পনা এবং অধ্যবসায়েই সাফল্য সম্ভব।”</p>
-
-    <h2>ছাত্রদের মতামত</h2>
-    <form>
-      <input type="text" placeholder="আপনার নাম" required><br><br>
-      <textarea placeholder="আপনার মন্তব্য লিখুন..." required></textarea><br><br>
-      <button type="submit">পাঠান</button>
-    </form>
-
-    <h2>যোগাযোগ</h2>
-    <p>ঠিকানা: XYZ Coaching Center, Kolkata</p>
-    <p>ফোন: 9614373839</p>
-    <p>Email: nibedansarkar02@gmail.com</p>
-    <p>Referral Code: NSA025</p>
-
-    <h2>অনলাইন পরীক্ষা দিন</h2>
-    <p>আমাদের অনলাইন মক টেস্টে অংশগ্রহণ করুন আপনার প্রস্তুতির জন্য।</p>
+  <!-- 🎥 Slideshow Background -->
+  <div class="slideshow">
+    <img src="https://images.unsplash.com/photo-1604035097652-57c2a02c931d" alt="Army">
+    <img src="https://images.unsplash.com/photo-1581091870622-2c5b1c90aaf4" alt="Police">
+    <img src="https://images.unsplash.com/photo-1617694827873-73e70c4c8c4e" alt="Railway">
   </div>
 
-  <footer>
-    &copy; 2025 Govt Force Coaching | Developed with ❤️
-  </footer>
+  <!-- 📱 Sidebar Menu -->
+  <div class="w-64 bg-gray-900 min-h-screen p-5 sidebar">
+    <h1 class="text-2xl font-bold mb-6">🎯 Target Zone</h1>
+    <nav class="space-y-2">
+      <a class="block px-3 py-2 rounded" href="#dashboard">📊 Dashboard</a>
+      <a class="block px-3 py-2 rounded" href="#courses">📚 Look for Courses</a>
+      <a class="block px-3 py-2 rounded" href="#doubt">❓ Doubt History</a>
+      <a class="block px-3 py-2 rounded" href="#membership">💳 Membership History</a>
+      <a class="block px-3 py-2 rounded" href="#downloads">📥 My Downloads</a>
+      <a class="block px-3 py-2 rounded" href="#content">📂 My Content</a>
+      <a class="block px-3 py-2 rounded" href="#post">✏️ My Post</a>
+      <a class="block px-3 py-2 rounded" href="https://nibedansarkar12.github.io/Target/" target="_blank">📝 Mock Test</a>
+      <a class="block px-3 py-2 rounded" href="#wallet">👛 My Wallet</a>
+      <a class="block px-3 py-2 rounded" href="#messages">📨 Messages</a>
+      <a class="block px-3 py-2 rounded" href="#refer">📣 Refer a Friend</a>
+      <a class="block px-3 py-2 rounded" href="#notification">🔔 Notification</a>
+      <a class="block px-3 py-2 rounded" href="#helpline">📞 Helpline</a>
+    </nav>
+  </div>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('sideMenu').classList.toggle('open');
-    }
-  </script>
+  <!-- 🧱 Main Content -->
+  <div class="flex-1 p-6 space-y-10 overflow-y-auto">
 
-  <!-- Optional: Particle.js -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    // Basic particles config
-    particlesJS("sideMenu", {
-      particles: {
-        number: { value: 40 },
-        size: { value: 3 }
-      }
-    });
-  </script>
+    <section id="dashboard">
+      <h2 class="text-2xl font-bold mb-2">📊 ড্যাশবোর্ড</h2>
+      <p>আপনার একনজরে ফলাফল, পরীক্ষার তথ্য ও সদস্যপদ তথ্য এখানে দেখানো হবে।</p>
+    </section>
 
+    <section id="courses">
+      <h2 class="text-2xl font-bold mb-2">📚 কোর্স তালিকা</h2>
+      <ul class="list-disc list-inside">
+        <li>WBP/KP</li>
+        <li>RAILWAY</li>
+        <li>GNM / ANM</li>
+        <li>ICDS / PSC</li>
+      </ul>
+    </section>
+
+    <section id="doubt">
+      <h2 class="text-2xl font-bold mb-2">❓ ডাউট হিস্ট্রি</h2>
+      <p>আপনি পূর্বে যে প্রশ্ন করেছেন ও তার উত্তরসমূহ এখানে দেখতে পারবেন।</p>
+    </section>
+
+    <section id="membership">
+      <h2 class="text-2xl font-bold mb-2">💳 সদস্যপদ ইতিহাস</h2>
+      <p>আপনার সাবস্ক্রিপশন বা পেমেন্ট হিস্ট্রি এখানে থাকবে।</p>
+    </section>
+
+    <section id="downloads">
+      <h2 class="text-2xl font-bold mb-2">📥 ডাউনলোড সমূহ</h2>
+      <p>আপনার নোটস, প্রশ্নপত্র ইত্যাদি এখানে পাওয়া যাবে।</p>
+    </section>
+
+    <section id="content">
+      <h2 class="text-2xl font-bold mb-2">📂 আপনার কনটেন্ট</h2>
+      <p>আপনার ব্যক্তিগত শিক্ষাসামগ্রী এখানে সংরক্ষিত থাকবে।</p>
+    </section>
+
+    <section id="post">
+      <h2 class="text-2xl font-bold mb-2">✏️ মাই পোস্ট</h2>
+      <p>আপনার লিখিত বা আপলোডকৃত বিষয়বস্তু এখানে দেখা যাবে।</p>
+    </section>
+
+    <section id="wallet">
+      <h2 class="text-2xl font-bold mb-2">👛 ওয়ালেট</h2>
+      <p>আপনার অ্যাকাউন্ট ব্যালান্স ও ট্রান্সাকশন এখানে দেখানো হবে।</p>
+    </section>
+
+    <section id="messages">
+      <h2 class="text-2xl font-bold mb-2">📨 বার্তা</h2>
+      <p>আপনার প্রাপ্ত বার্তা ও নোটিফিকেশন এখানে পাওয়া যাবে।</p>
+    </section>
+
+    <section id="refer">
+      <h2 class="text-2xl font-bold mb-2">📣 রেফার করুন</h2>
+      <p>বন্ধুকে রেফার করুন এবং পুরস্কার জিতুন! আপনার রেফার কোড: <strong>TZ12345</strong></p>
+    </section>
+
+    <section id="notification">
+      <h2 class="text-2xl font-bold mb-2">🔔 নোটিফিকেশন</h2>
+      <p>সাম্প্রতিক সকল ঘোষণা ও আপডেট এখানে দেখানো হবে।</p>
+    </section>
+
+    <section id="helpline">
+      <h2 class="text-2xl font-bold mb-2">📞 হেল্পলাইন</h2>
+      <p>যোগাযোগ: 9614373839 / 8167692533</p>
+      <p>ঠিকানা: Vill- Hardighi, P.O- Bhikahar, P.S- Tapan, Dist- Dakshin Dinajpur, Pin- 733142</p>
+    </section>
+
+  </div>
 </body>
 </html>
