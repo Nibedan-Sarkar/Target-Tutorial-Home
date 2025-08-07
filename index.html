@@ -1,159 +1,135 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Target Zone - কোচিং সেন্টার</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎯 Target Zone</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #111;
+      background-color: #111;
     }
 
+    /* 🔄 Slideshow */
     .slideshow {
       position: fixed;
-      top: 0;
-      left: 0;
       z-index: -1;
       width: 100%;
       height: 100%;
+      top: 0; left: 0;
       overflow: hidden;
     }
-
     .slideshow img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       position: absolute;
       opacity: 0;
-      animation: slideShow 30s infinite;
+      animation: slide 30s infinite;
     }
-
-    .slideshow img:nth-child(1) {
-      animation-delay: 0s;
-    }
-    .slideshow img:nth-child(2) {
-      animation-delay: 10s;
-    }
-    .slideshow img:nth-child(3) {
-      animation-delay: 20s;
-    }
-
-    @keyframes slideShow {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      30% { opacity: 1; }
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 10s; }
+    .slideshow img:nth-child(3) { animation-delay: 20s; }
+    @keyframes slide {
+      0%, 100% { opacity: 0; }
+      10%, 30% { opacity: 1; }
       40% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    .sidebar a:hover {
-      background-color: #374151;
-      color: white;
     }
   </style>
 </head>
-<body class="flex text-white">
+<body class="text-white">
 
-  <!-- 🎥 Slideshow Background -->
+  <!-- 🔁 Background Slideshow -->
   <div class="slideshow">
-    <img src="https://images.unsplash.com/photo-1604035097652-57c2a02c931d" alt="Army">
-    <img src="https://images.unsplash.com/photo-1581091870622-2c5b1c90aaf4" alt="Police">
-    <img src="https://images.unsplash.com/photo-1617694827873-73e70c4c8c4e" alt="Railway">
+    <img src="https://images.unsplash.com/photo-1604035097652-57c2a02c931d" alt="Army" />
+    <img src="https://images.unsplash.com/photo-1581091870622-2c5b1c90aaf4" alt="Police" />
+    <img src="https://images.unsplash.com/photo-1617694827873-73e70c4c8c4e" alt="Railway" />
   </div>
 
-  <!-- 📱 Sidebar Menu -->
-  <div class="w-64 bg-gray-900 min-h-screen p-5 sidebar">
-    <h1 class="text-2xl font-bold mb-6">🎯 Target Zone</h1>
-    <nav class="space-y-2">
-      <a class="block px-3 py-2 rounded" href="#dashboard">📊 Dashboard</a>
-      <a class="block px-3 py-2 rounded" href="#courses">📚 Look for Courses</a>
-      <a class="block px-3 py-2 rounded" href="#doubt">❓ Doubt History</a>
-      <a class="block px-3 py-2 rounded" href="#membership">💳 Membership History</a>
-      <a class="block px-3 py-2 rounded" href="#downloads">📥 My Downloads</a>
-      <a class="block px-3 py-2 rounded" href="#content">📂 My Content</a>
-      <a class="block px-3 py-2 rounded" href="#post">✏️ My Post</a>
-      <a class="block px-3 py-2 rounded" href="https://nibedansarkar12.github.io/Target/" target="_blank">📝 Mock Test</a>
-      <a class="block px-3 py-2 rounded" href="#wallet">👛 My Wallet</a>
-      <a class="block px-3 py-2 rounded" href="#messages">📨 Messages</a>
-      <a class="block px-3 py-2 rounded" href="#refer">📣 Refer a Friend</a>
-      <a class="block px-3 py-2 rounded" href="#notification">🔔 Notification</a>
-      <a class="block px-3 py-2 rounded" href="#helpline">📞 Helpline</a>
+  <!-- 🔝 Header -->
+  <header class="bg-gray-900 bg-opacity-90 p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">🎯 Target Zone</h1>
+    <nav class="space-x-4 hidden md:block">
+      <button onclick="loadPage('dashboard')" class="hover:underline">Dashboard</button>
+      <button onclick="loadPage('courses')" class="hover:underline">Courses</button>
+      <button onclick="loadPage('mocktest')" class="hover:underline">Mock Test</button>
+      <button onclick="loadPage('contact')" class="hover:underline">Helpline</button>
     </nav>
+  </header>
+
+  <!-- 📱 Sidebar (mobile toggle) -->
+  <div class="md:flex">
+    <aside class="w-64 bg-gray-800 bg-opacity-90 p-4 hidden md:block">
+      <nav class="space-y-2">
+        <button onclick="loadPage('dashboard')" class="block w-full text-left">📊 Dashboard</button>
+        <button onclick="loadPage('courses')" class="block w-full text-left">📚 Courses</button>
+        <button onclick="loadPage('doubt')" class="block w-full text-left">❓ Doubt History</button>
+        <button onclick="loadPage('membership')" class="block w-full text-left">💳 Membership</button>
+        <button onclick="loadPage('downloads')" class="block w-full text-left">📥 Downloads</button>
+        <button onclick="loadPage('content')" class="block w-full text-left">📂 My Content</button>
+        <button onclick="loadPage('post')" class="block w-full text-left">✏️ My Post</button>
+        <a href="https://nibedansarkar12.github.io/Target/" target="_blank" class="block">📝 Mock Test</a>
+        <button onclick="loadPage('wallet')" class="block w-full text-left">👛 Wallet</button>
+        <button onclick="loadPage('messages')" class="block w-full text-left">📨 Messages</button>
+        <button onclick="loadPage('refer')" class="block w-full text-left">📣 Refer</button>
+        <button onclick="loadPage('notifications')" class="block w-full text-left">🔔 Notifications</button>
+        <button onclick="loadPage('contact')" class="block w-full text-left">📞 Helpline</button>
+      </nav>
+    </aside>
+
+    <!-- 🧱 Main Content -->
+    <main id="main-content" class="flex-1 p-6 bg-black bg-opacity-60 min-h-screen">
+      <h2 class="text-2xl font-bold">স্বাগতম!</h2>
+      <p>বাম দিক থেকে বা উপরের ট্যাব থেকে একটি অপশন বেছে নিন।</p>
+    </main>
   </div>
 
-  <!-- 🧱 Main Content -->
-  <div class="flex-1 p-6 space-y-10 overflow-y-auto">
+  <!-- 🔗 Firebase & Page Loader Script -->
+  <script type="module">
+    // 🔥 Firebase Setup
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-    <section id="dashboard">
-      <h2 class="text-2xl font-bold mb-2">📊 ড্যাশবোর্ড</h2>
-      <p>আপনার একনজরে ফলাফল, পরীক্ষার তথ্য ও সদস্যপদ তথ্য এখানে দেখানো হবে।</p>
-    </section>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCR5rqthBh0vX0yLOcOG3b9xJiKbYtzdxU",
+      authDomain: "target-zone-8fffd.firebaseapp.com",
+      projectId: "target-zone-8fffd",
+      storageBucket: "target-zone-8fffd.appspot.com",
+      messagingSenderId: "667579216123",
+      appId: "1:667579216123:web:37bb1fcc724743073d005e"
+    };
 
-    <section id="courses">
-      <h2 class="text-2xl font-bold mb-2">📚 কোর্স তালিকা</h2>
-      <ul class="list-disc list-inside">
-        <li>WBP/KP</li>
-        <li>RAILWAY</li>
-        <li>GNM / ANM</li>
-        <li>ICDS / PSC</li>
-      </ul>
-    </section>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-    <section id="doubt">
-      <h2 class="text-2xl font-bold mb-2">❓ ডাউট হিস্ট্রি</h2>
-      <p>আপনি পূর্বে যে প্রশ্ন করেছেন ও তার উত্তরসমূহ এখানে দেখতে পারবেন।</p>
-    </section>
+    // 🧠 Page Loader
+    window.loadPage = async function (page) {
+      const content = document.getElementById("main-content");
+      content.innerHTML = `<h2 class="text-xl font-bold mb-2">🔄 ${page} লোড হচ্ছে...</h2>`;
 
-    <section id="membership">
-      <h2 class="text-2xl font-bold mb-2">💳 সদস্যপদ ইতিহাস</h2>
-      <p>আপনার সাবস্ক্রিপশন বা পেমেন্ট হিস্ট্রি এখানে থাকবে।</p>
-    </section>
-
-    <section id="downloads">
-      <h2 class="text-2xl font-bold mb-2">📥 ডাউনলোড সমূহ</h2>
-      <p>আপনার নোটস, প্রশ্নপত্র ইত্যাদি এখানে পাওয়া যাবে।</p>
-    </section>
-
-    <section id="content">
-      <h2 class="text-2xl font-bold mb-2">📂 আপনার কনটেন্ট</h2>
-      <p>আপনার ব্যক্তিগত শিক্ষাসামগ্রী এখানে সংরক্ষিত থাকবে।</p>
-    </section>
-
-    <section id="post">
-      <h2 class="text-2xl font-bold mb-2">✏️ মাই পোস্ট</h2>
-      <p>আপনার লিখিত বা আপলোডকৃত বিষয়বস্তু এখানে দেখা যাবে।</p>
-    </section>
-
-    <section id="wallet">
-      <h2 class="text-2xl font-bold mb-2">👛 ওয়ালেট</h2>
-      <p>আপনার অ্যাকাউন্ট ব্যালান্স ও ট্রান্সাকশন এখানে দেখানো হবে।</p>
-    </section>
-
-    <section id="messages">
-      <h2 class="text-2xl font-bold mb-2">📨 বার্তা</h2>
-      <p>আপনার প্রাপ্ত বার্তা ও নোটিফিকেশন এখানে পাওয়া যাবে।</p>
-    </section>
-
-    <section id="refer">
-      <h2 class="text-2xl font-bold mb-2">📣 রেফার করুন</h2>
-      <p>বন্ধুকে রেফার করুন এবং পুরস্কার জিতুন! আপনার রেফার কোড: <strong>TZ12345</strong></p>
-    </section>
-
-    <section id="notification">
-      <h2 class="text-2xl font-bold mb-2">🔔 নোটিফিকেশন</h2>
-      <p>সাম্প্রতিক সকল ঘোষণা ও আপডেট এখানে দেখানো হবে।</p>
-    </section>
-
-    <section id="helpline">
-      <h2 class="text-2xl font-bold mb-2">📞 হেল্পলাইন</h2>
-      <p>যোগাযোগ: 9614373839 / 8167692533</p>
-      <p>ঠিকানা: Vill- Hardighi, P.O- Bhikahar, P.S- Tapan, Dist- Dakshin Dinajpur, Pin- 733142</p>
-    </section>
-
-  </div>
+      if (page === "dashboard") {
+        content.innerHTML = "<h2 class='text-2xl font-bold mb-2'>📊 Dashboard</h2><p>এখানে পরীক্ষা ও ফলাফল থাকবে।</p>";
+      } else if (page === "courses") {
+        content.innerHTML = "<h2 class='text-2xl font-bold mb-2'>📚 Courses</h2><ul><li>WBP</li><li>RAILWAY</li><li>GNM</li></ul>";
+      } else if (page === "doubt") {
+        const snapshot = await getDocs(collection(db, "doubts"));
+        let html = "<h2 class='text-2xl font-bold mb-2'>❓ Doubt History</h2><ul>";
+        snapshot.forEach(doc => {
+          html += `<li>${doc.data().question}</li>`;
+        });
+        html += "</ul>";
+        content.innerHTML = html;
+      } else if (page === "mocktest") {
+        window.open("https://nibedansarkar12.github.io/Target/", "_blank");
+      } else if (page === "contact") {
+        content.innerHTML = "<h2 class='text-2xl font-bold mb-2'>📞 Helpline</h2><p>যোগাযোগ: 9614373839 / 8167692533</p><p>ঠিকানা: Vill- Hardighi, P.O- Bhikahar, P.S- Tapan, Dist- Dakshin Dinajpur, Pin-733142</p>";
+      } else {
+        content.innerHTML = `<h2 class="text-xl font-bold">🔍 ${page} পৃষ্ঠা প্রস্তুত হচ্ছে...</h2>`;
+      }
+    };
+  </script>
 </body>
 </html>
