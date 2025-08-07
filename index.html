@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Target Zone কোচিং সেন্টার</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      background: linear-gradient(270deg, #142850, #27496d, #0c7b93, #00a8cc);
+      background-size: 800% 800%;
+      animation: gradientBG 20s ease infinite;
+      color: white;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    header {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-color: rgba(0,0,0,0.5);
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 2rem 1rem;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+    nav.active {
+      transform: translateX(0);
+    }
+    nav a {
+      display: block;
+      padding: 1rem;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid #444;
+    }
+    .menu-btn, .close-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 2rem;
+      color: white;
+      z-index: 1000;
+      cursor: pointer;
+    }
+    .close-btn {
+      left: 220px;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -2;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>  <div class="menu-btn"><i class="fas fa-bars"></i></div>
+  <nav id="sidebar">
+    <div class="close-btn"><i class="fas fa-times"></i></div>
+    <a href="#home">হোম</a>
+    <a href="#about">আমাদের সম্পর্কে</a>
+    <a href="#courses">কোর্স</a>
+    <a href="https://nibedansarkar12.github.io/Target/" target="_blank">অনলাইন পরীক্ষা</a>
+    <a href="#success">সফলতা</a>
+    <a href="#faq">প্রশ্নোত্তর</a>
+    <a href="#contact">যোগাযোগ</a>
+  </nav>  <header id="home">
+    <video autoplay muted loop>
+      <source src="https://www.videvo.net/videvo_files/converted/2017_10/preview/170831_06_
